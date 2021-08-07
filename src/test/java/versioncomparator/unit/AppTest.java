@@ -1,7 +1,6 @@
 package versioncomparator.unit;
 
 import org.junit.jupiter.api.Test;
-import versioncomparator.App;
 import versioncomparator.VersionComparator;
 
 import java.io.ByteArrayInputStream;
@@ -24,8 +23,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(1, versionComparatorTest.getResult());
@@ -43,8 +41,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(-1, versionComparatorTest.getResult());
@@ -62,8 +59,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -82,8 +78,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -103,8 +98,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -117,7 +111,6 @@ class AppTest {
      */
     @Test
     void secondVersionBlankInput() {
-        String input = "1.0.0\n\n1.0.0\n\n";
         List<String> userInputs = Arrays.asList(
                 "1.0.0",
                 "EMPTY_INPUT",
@@ -125,8 +118,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -139,7 +131,6 @@ class AppTest {
      */
     @Test
     void secondVersionWrongFormatInput() {
-        String input = "1.0.0\nabc\n1.0.0\n\n";
         List<String> userInputs = Arrays.asList(
                 "1.0.0",
                 "3.14abc",
@@ -147,8 +138,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -161,7 +151,6 @@ class AppTest {
      */
     @Test
     void allVersionsBlankInput() {
-        String input = "\n1.0.0\n\n1.0.0\n\n";
         List<String> userInputs = Arrays.asList(
                 "EMPTY_INPUT",
                 "1.0.0",
@@ -170,8 +159,7 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
@@ -184,7 +172,6 @@ class AppTest {
      */
     @Test
     void allVersionsWrongFormatInput() {
-        String input = "abc\n1.0.0\nabc\n1.0.0\n\n";
         List<String> userInputs = Arrays.asList(
                 "3,14abc",
                 "1.0.0",
@@ -193,14 +180,13 @@ class AppTest {
                 "END_TEST"
         );
 
-        ByteArrayInputStream byteArray = getUserInputByteArray(userInputs);
-        System.setIn(byteArray);
+        System.setIn(setUserInputs(userInputs));
         VersionComparator versionComparatorTest = new VersionComparator();
         versionComparatorTest.start();
         assertEquals(0, versionComparatorTest.getResult());
     }
 
-    ByteArrayInputStream getUserInputByteArray(List<String> userInputs) {
+    ByteArrayInputStream setUserInputs(List<String> userInputs) {
         String input = "";
 
         for (String userInput : userInputs) {
@@ -216,8 +202,7 @@ class AppTest {
             }
         }
 
-        ByteArrayInputStream byteArray = new ByteArrayInputStream(input.getBytes());
-        return byteArray;
+        return new ByteArrayInputStream(input.getBytes());
     }
     
 }
