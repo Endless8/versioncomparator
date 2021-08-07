@@ -27,4 +27,5 @@ public class VersionComparator {
     public int getResult() {
         return result;
     }
+
 }

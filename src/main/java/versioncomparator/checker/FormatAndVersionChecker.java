@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class FormatAndVersionChecker {
+
     private String firstVersion;
     private String secondVersion;
     private Scanner scanner;
@@ -68,4 +69,5 @@ public class FormatAndVersionChecker {
     public void setSecondVersion(String secondVersion) {
         this.secondVersion = secondVersion;
     }
+
 }
