@@ -1,3 +1,3 @@
 D:\Programmazione\mvn-versioncomparator\src\main\java\versioncomparator\App.java
-D:\Programmazione\mvn-versioncomparator\src\main\java\versioncomparator\formatchecker\FormatChecker.java
-D:\Programmazione\mvn-versioncomparator\src\main\java\versioncomparator\versionchecker\VersionChecker.java
+D:\Programmazione\mvn-versioncomparator\src\main\java\versioncomparator\checker\FormatAndVersionChecker.java
+D:\Programmazione\mvn-versioncomparator\src\main\java\versioncomparator\VersionComparator.java
